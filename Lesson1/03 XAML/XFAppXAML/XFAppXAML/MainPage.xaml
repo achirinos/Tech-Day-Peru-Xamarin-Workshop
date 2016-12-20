@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFAppXAML.MainPage">
+
+  <StackLayout>
+    <Label x:Name="label1" Text ="Bienvenidos a Xamarin Forms" />
+    <Entry x:Name="entry1" Placeholder="Escribe tu nombre" />
+    <Button Text="Saluda" Clicked="ButtonClicked" />
+  </StackLayout>
+  
+</ContentPage>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:SimpleApp.ViewModels;assembly=SimpleApp"
+             x:Class="SimpleApp.Views.MainPage">
+
+  <ContentPage.BindingContext>
+    <viewmodels:MainPageViewModel />
+  </ContentPage.BindingContext>
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>  
+
+    <ActivityIndicator IsRunning="{Binding IsLoading}" 
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+      
+    <StackLayout Padding="5,5,0,5"
+                 BackgroundColor="Green">
+      <Label Text="Tabla de Posiciones" FontSize="Large" FontAttributes="Bold"
+             HorizontalTextAlignment="Center"/>        
+      <ListView ItemsSource="{Binding Posiciones}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="3*" />
+                  </Grid.ColumnDefinitions>
+                  
+                  <Label Text="{Binding Nombre}" FontSize="Medium"
+                         Margin ="10,0,0,0"/>
+                  <Label Text="{Binding Ptos}" FontSize="Medium" HorizontalTextAlignment="End"                         
+                         Grid.Column="1" Margin="0,0,10,0" />
+                </Grid>                
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+      <Button Text="Obtener Posiciones" Command="{Binding ObtenerPosicionesCommand}"/>
+    </StackLayout>
+  </Grid>
+  
+</ContentPage>

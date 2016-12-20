@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Commanding.ViewModels;assembly=Commanding"
+             x:Class="Commanding.Views.MainPage">
+  <ContentPage.BindingContext>
+    <local:MainPageViewModel />
+  </ContentPage.BindingContext>
+  
+  <StackLayout>
+    <Label Text="{Binding Value}" />
+    <Switch IsToggled="{Binding IsToggle, Mode=TwoWay}" />
+    <Button Text="Action!" Command="{Binding ButtonCommand}" />
+  </StackLayout> 
+  
+</ContentPage>
